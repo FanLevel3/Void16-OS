@@ -1,23 +1,27 @@
-#include <stdint.h>
+#include "kernel.h"
 
-unsigned char port_byte_in(unsigned short port) {
-    unsigned char result;
-    __asm__("in %%dx, %%al" : "=a" (result) : "d" (port));
-    return result;
-}
+// Normal
+unsigned char ascii_map[] = {
+    0, 27, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '\b', 
+    '\t', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\n', 
+    0, 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '`', 0, 
+    '\\', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 0, '*', 0, ' '
+};
 
-char get_ascii_char(uint8_t scancode) {
-    switch(scancode) {
-        case 0x1E: return 'a'; case 0x30: return 'b'; case 0x2E: return 'c';
-        case 0x20: return 'd'; case 0x12: return 'e'; case 0x21: return 'f';
-        case 0x22: return 'g'; case 0x23: return 'h'; case 0x17: return 'i';
-        case 0x24: return 'j'; case 0x25: return 'k'; case 0x26: return 'l';
-        case 0x32: return 'm'; case 0x31: return 'n'; case 0x18: return 'o';
-        case 0x19: return 'p'; case 0x10: return 'q'; case 0x13: return 'r';
-        case 0x1F: return 's'; case 0x14: return 't'; case 0x16: return 'u';
-        case 0x2F: return 'v'; case 0x11: return 'w'; case 0x2D: return 'x';
-        case 0x15: return 'y'; case 0x2C: return 'z'; case 0x39: return ' ';
-        case 0x1C: return '\n'; // Enter
-        default: return 0;
+// Shifted
+unsigned char ascii_shift_map[] = {
+    0, 27, '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '\b', 
+    '\t', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '\n', 
+    0, 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '\"', '~', 0, 
+    '|', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', 0, '*', 0, ' '
+};
+
+char get_ascii_char(uint8_t scancode, int shift_pressed) {
+    if (scancode > 58) return 0;
+
+    if (shift_pressed) {
+        return ascii_shift_map[scancode];
+    } else {
+        return ascii_map[scancode];
     }
 }

@@ -6,29 +6,31 @@ A Tiny CLI Operating System Built from Scratch
 Void16 OS is a minimalist, hobbyist operating system designed for fun and exploration. It’s built to demonstrate the core fundamentals of OS development, starting from the boot sequence to a basic interactive shell.
 
 Currently, it features a simple functional CLI where you can feed it inputs, and it will spit outputs back at you. Simple, raw, and straight to the point. lol
-✨ Features
+✨ Feature
 
     Custom C Kernel: The heart of the system is written in C. (16Kernel)
 
     Assembly Loader: Low-level entry point handled by Assembly for maximum control.
 
-    GRUB Ready: Uses GRUB as the primary bootloader for easy booting.
+    Bootloader: I made my own bootloader named NEPBOOT.
 
     Basic CLI: Interactive text-based interface for input and output.
 
-🛠 Tech Stack
+🛠 What i used
 
     Languages: C, x86 Assembly
 
-    Bootloader: GRUB
+    Bootloader: NETPBOOT
 
     Format: Bootable ISO Image
 
 🕹️ How to Run
 
-You don't need a complex build environment to try this out. Just grab the ISO and go!
+EASY Enough
 
     Download the latest Void16.iso from the releases/repo.
+    or
+    Download it from "https://voidsixteen.space"
 
     Fire up your favorite Virtual Machine ( QEMU, VirtualBox, or VMware).
 
@@ -38,7 +40,7 @@ You don't need a complex build environment to try this out. Just grab the ISO an
 
 🚧 Project Status
 
-This is currently a "Just for Fun" project. The main goal is to experiment with kernel-side logic and hardware interfacing. Expect more "useless but cool" features soon!
+Just for fun. Its Free BTW not expected money from that. (LOWKEY)
 
 
 
@@ -46,7 +48,7 @@ This is currently a "Just for Fun" project. The main goal is to experiment with 
 
 📁***QEMU***
 
-Type: *qemu-system-x86_32 -cdrom Void16.iso*
+Type: *qemu-system-i386 -drive format=raw,file=Downloads(Or Your Directory that has the ISO file)/Void16OS.img*
 
 💻***VirtualBox***
 
@@ -71,4 +73,11 @@ OS Version: Other/Unknown
 
 Select Void16 OS and **Enjoy!**
 
-<img width="1093" height="758" alt="GIt4" src="https://github.com/user-attachments/assets/286fc9b6-6b71-4cf0-a6df-f587743d4044" />
+<img width="838" height="609" alt="git5" src="https://github.com/user-attachments/assets/5faae082-d6af-462b-a694-797bf44907ff" />
+
+**UPDATE 0.7.2**
+
+Update the Shell
+-Color
+-TextEditor
+And More Check It Out!

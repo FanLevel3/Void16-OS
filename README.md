@@ -1,11 +1,11 @@
 # Void16-OS
-🌌 Void16 OS V0.6
+🌌 Void16 OS V0.7.2
 
 A Tiny CLI Operating System Built from Scratch
 
 Void16 OS is a minimalist, hobbyist operating system designed for fun and exploration. It’s built to demonstrate the core fundamentals of OS development, starting from the boot sequence to a basic interactive shell.
 
-Currently, it features a simple functional CLI where you can feed it inputs, and it will spit outputs back at you. Simple, raw, and straight to the point. lol
+Currently, it features a simple functional CLI where you can type in shell "dumb" to enter DumbText Editor v0.2 Simple, raw, and straight to the point. lol
 ✨ Feature
 
     Custom C Kernel: The heart of the system is written in C. (16Kernel)
